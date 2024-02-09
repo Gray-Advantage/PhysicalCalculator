@@ -1,4 +1,4 @@
-from webbrowser import open_new
+from webbrowser import open
 from math import pi, sqrt
 import os
 
@@ -44,5 +44,6 @@ def close_app():
     eval("os._exit(0)")
 
 
-app.run(host="localhost", debug=True)
-open_new("http://localhost:5000")
+if __name__ == '__main__':
+    open("http://localhost:5000")
+    app.run(host="localhost")
