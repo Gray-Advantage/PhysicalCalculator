@@ -1,6 +1,6 @@
 from webbrowser import open_new
-from sys import exit
 from math import pi, sqrt
+import os
 
 from flask import Flask, render_template, request
 from forms import FormulaForm, ResultForm
@@ -13,8 +13,8 @@ C_1 = 1.3  # эмпирический коэффициент
 app = Flask(__name__)
 
 
-def render(**kwargs):
-    return render_template("index.html", title="Физический калькулятор", **kwargs)
+def render(**kw):
+    return render_template("index.html", title="Физический калькулятор", **kw)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -41,7 +41,7 @@ def hello_world():
 
 @app.route("/close", methods=["POST"])
 def close_app():
-    exit()
+    eval("os._exit(0)")
 
 
 app.run(host="localhost", debug=True)
